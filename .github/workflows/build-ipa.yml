@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build-unsigned-ipa:
@@ -37,10 +37,22 @@ jobs:
           zip -qry "$GITHUB_WORKSPACE/SignalField-unsigned.ipa" Payload
           test -f "$GITHUB_WORKSPACE/SignalField-unsigned.ipa"
 
-      - name: Upload IPA for Signulous
+      - name: Upload private workflow artifact
         uses: actions/upload-artifact@v4
         with:
           name: SignalField-unsigned-IPA
           path: SignalField-unsigned.ipa
           if-no-files-found: error
           retention-days: 14
+
+      - name: Publish public GitHub Release download
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: signal-field-ipa-${{ github.run_number }}
+          name: Signal Field IPA ${{ github.run_number }}
+          body: |
+            Unsigned IPA for Signulous signing.
+
+            Download `SignalField-unsigned.ipa` and upload it to Signulous.
+          files: SignalField-unsigned.ipa
+          make_latest: true

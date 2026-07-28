@@ -25,6 +25,6 @@ The Windows machine that generated this source package does not have Xcode or an
 
 The repository includes `.github/workflows/build-ipa.yml`. It runs manually on a macOS GitHub runner and creates an **unsigned IPA** without requiring Apple Developer credentials.
 
-Run **Actions → Build unsigned IPA for Signulous → Run workflow**. When the run finishes, download the artifact named `SignalField-unsigned-IPA`, then upload `SignalField-unsigned.ipa` to Signulous for signing and installation.
+Run **Actions → Build unsigned IPA for Signulous → Run workflow**. The workflow creates both a private Actions artifact and a public GitHub Release asset. Use the **Releases** section for the normal downloadable IPA; that avoids GitHub Actions artifact login issues. Download `SignalField-unsigned.ipa`, then upload it to Signulous for signing and installation.
 
 This is intentional: Signulous performs the signing for your device. Do not rename the source archive or add Apple certificates to the repository.
