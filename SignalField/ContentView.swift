@@ -59,7 +59,7 @@ struct ContentView: View {
     }
 
     private func metric(title: String, value: String, detail: String) -> some View {
-        VStack(alignment: .leading, spacing: 8) { Text(title).font(.caption2.monospaced().foregroundStyle(.secondary)); Text(value).font(.title2.bold()); Text(detail).font(.caption).foregroundStyle(.secondary) }
+        VStack(alignment: .leading, spacing: 8) { Text(title).font(.caption2.monospaced()).foregroundStyle(.secondary); Text(value).font(.title2.bold()); Text(detail).font(.caption).foregroundStyle(.secondary) }
             .frame(maxWidth: .infinity, alignment: .leading).padding(16).background(.background).clipShape(RoundedRectangle(cornerRadius: 14))
     }
 

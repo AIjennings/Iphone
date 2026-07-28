@@ -60,9 +60,12 @@ final class SignalMonitor: NSObject, ObservableObject, CLLocationManagerDelegate
         cellular = CellularReading(radio: name, is5G: is5G, detail: is5G ? "5G radio detected" : "Current cellular radio")
     }
 
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        locationDenied = manager.authorizationStatus == .denied || manager.authorizationStatus == .restricted
-        if manager.authorizationStatus == .authorizedAlways || manager.authorizationStatus == .authorizedWhenInUse { refresh() }
+    nonisolated func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        Task { @MainActor [weak self] in
+            guard let self else { return }
+            self.locationDenied = manager.authorizationStatus == .denied || manager.authorizationStatus == .restricted
+            if manager.authorizationStatus == .authorizedAlways || manager.authorizationStatus == .authorizedWhenInUse { self.refresh() }
+        }
     }
 }
 
