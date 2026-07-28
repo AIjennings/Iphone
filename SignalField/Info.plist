@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+    <key>CFBundleDisplayName</key><string>Signal Field</string>
+    <key>CFBundleIdentifier</key><string>com.ariatechnology.signalfield</string>
+    <key>CFBundleShortVersionString</key><string>1.0</string>
+    <key>CFBundleVersion</key><string>1</string>
+    <key>LSRequiresIPhoneOS</key><true/>
+    <key>UILaunchScreen</key><dict/>
+    <key>NSLocationWhenInUseUsageDescription</key><string>Signal Field uses your location to identify the current Wi‑Fi network and help you map signal coverage.</string>
+    <key>UIRequiresFullScreen</key><true/>
+</dict></plist>
