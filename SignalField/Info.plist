@@ -10,6 +10,7 @@
     <key>CFBundleVersion</key><string>1</string>
     <key>LSRequiresIPhoneOS</key><true/>
     <key>UILaunchScreen</key><dict/>
+    <key>NSCameraUsageDescription</key><string>Signal Field uses the camera to overlay signal and speed readings in augmented reality.</string>
     <key>NSLocationWhenInUseUsageDescription</key><string>Signal Field uses your location to identify the current Wi‑Fi network and help you map signal coverage.</string>
     <key>UIRequiresFullScreen</key><true/>
 </dict></plist>
